@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-meli-gray-alt text-meli-black-alt font-sans;
+    background-color: #EEEEEE;
+    color: #333333;
+  }
+
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl font-bold;
+  }
+}
+
+/* Clases alternativas en caso de que la configuración anidada sea necesaria */
+@layer utilities {
+  .bg-meli-gray-alt {
+    background-color: #EEEEEE;
+  }
+  .text-meli-black-alt {
+    color: #333333;
+  }
+}
+
+@layer components {
+  .meli-button {
+    @apply bg-meli-blue text-white py-3 px-6 rounded-md font-medium transition-colors hover:bg-meli-dark-blue focus:outline-none focus:ring-2 focus:ring-meli-blue focus:ring-opacity-50;
+  }
+
+  .meli-input {
+    @apply w-full p-3 border border-meli-dark-gray rounded-md focus:outline-none focus:ring-2 focus:ring-meli-blue;
+  }
+
+  .meli-label {
+    @apply block text-sm font-medium text-meli-black mb-1;
+  }
+
+  .meli-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  .meli-card {
+    @apply bg-white p-4 rounded-md shadow-sm;
+  }
+
+  .loading-placeholder {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+}
