@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiBase = axios.create({
-    timeout: 10000,
+    timeout: 10000, // 10 segundos
     headers: {
         'Content-Type': 'application/json',
     },
@@ -10,14 +10,14 @@ const apiBase = axios.create({
 apiBase.interceptors.response.use(
     (response) => response,
     (error) => {
-        console.warn('API Error:', error);
+        console.error('API Error:', error);
         return Promise.reject(error);
     }
 );
 
-type QueryParams = Record<string, string | number | boolean | undefined>;
+export type QueryParams = Record<string, string | number | boolean | undefined>;
 
-export const get = async <T>(url: string, params?: ZipCodeValidationParams): Promise<T> => {
+export const get = async <T>(url: string, params?: QueryParams): Promise<T> => {
     const response = await apiBase.get<T>(url, { params });
     return response.data;
 };

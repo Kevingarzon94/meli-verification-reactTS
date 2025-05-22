@@ -1,4 +1,4 @@
-import { get } from './apiService';
+import { get, type QueryParams } from './apiService';
 import type {Country, State, City} from '../_types/countries.types';
 
 const COUNTRIES_API_BASE = '/api/meli-countries';
@@ -19,12 +19,6 @@ export const getCitiesByState = async (countryId: string, stateId: string): Prom
     return get<City[]>(`${COUNTRIES_API_BASE}/countries/${countryId}/states/${stateId}/cities`);
 };
 
-interface ZipCodeValidationParams {
-    countryId: string;
-    stateId: string;
-    zipCode: string;
-}
-
 interface ZipCodeValidationResponse {
     valid: boolean;
     city?: City;
@@ -35,7 +29,7 @@ export const validateZipCode = async (
     stateId: string,
     zipCode: string
 ): Promise<ZipCodeValidationResponse> => {
-    const params: ZipCodeValidationParams = {
+    const params: QueryParams = {
         countryId,
         stateId,
         zipCode

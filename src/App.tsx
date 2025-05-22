@@ -1,14 +1,14 @@
 import { VerificationProvider } from './_contexts/VerificationContext';
 import VerificationPage from './_pages/VerificationPage';
 import './config/i18n';
-
+import logo from './source/mercadolibre.svg'
 function App() {
     return (
         <div className="min-h-screen bg-meli-gray">
             <header className="bg-meli-yellow py-3 px-4">
                 <div className="max-w-6xl mx-auto">
                     <img
-                        src="/logo-ml.png"
+                        src={logo}
                         alt="Mercado Libre"
                         className="h-8"
                         onError={(e) => {
